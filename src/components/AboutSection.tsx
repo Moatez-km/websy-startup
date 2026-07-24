@@ -87,8 +87,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onScrollToSection })
         </FadeIn>
 
         {/* Gap between heading and text */}
-        <div className="mt-10 sm:mt-14 md:mt-16 w-full flex justify-center px-4">
-          <AnimatedText text="With more than five years of experience in design, i focus on branding, web design, and user experience, i truly enjoy working with businesses that aim to stand out and present their best image. Let's build something incredible together!" />
+        <div className="mt-10 sm:mt-14 md:mt-16 w-full flex flex-col items-center gap-6 sm:gap-8 px-4">
+          <AnimatedText text="My name is Moatez. Before venturing into the web industry, I spent years studying computer science—giving me a genuine understanding of the realities and day-to-day lives of the professionals who drive the local economy." />
+          <AnimatedText text="After completing two digital marketing training programs and spending a year at a web agency building sites for local businesses, I launched WebWebsy-Startup (now based in Bourges). My goal is to support craftspeople, shop owners, restaurateurs, and freelancers who want to be found on Google." />
+          <AnimatedText text="No jargon, no agency markups. Just a single, accessible point of contact who truly understands your business." />
         </div>
 
         {/* Gap between text block and button */}
