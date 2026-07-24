@@ -1,0 +1,129 @@
+import React from 'react';
+import { ContactButton } from './ContactButton';
+import { FadeIn } from './FadeIn';
+import { Magnet } from './Magnet';
+
+interface HeroSectionProps {
+  onScrollToSection: (sectionId: string) => void;
+}
+
+export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) => {
+  return (
+    <section className="relative h-screen w-full flex flex-col justify-between overflow-hidden bg-[#0C0C0C]">
+      {/* Absolute Portrait */}
+      <div className="absolute left-1/2 -translate-x-1/2 z-10 w-[280px] sm:w-[360px] md:w-[440px] lg:w-[520px] top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 pointer-events-none">
+        <FadeIn delay={0.6} y={30} duration={0.8} className="w-full h-full flex justify-center items-end">
+          <Magnet
+            padding={150}
+            strength={3}
+            activeTransition="transform 0.3s ease-out"
+            inactiveTransition="transform 0.6s ease-in-out"
+            className="w-full h-full pointer-events-auto"
+          >
+            <img
+              src="https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png"
+              alt="Moatez Portrait"
+              className="w-full h-auto object-contain select-none"
+              draggable="false"
+            />
+          </Magnet>
+        </FadeIn>
+      </div>
+
+      {/* Navbar */}
+      <div className="w-full flex justify-center px-6 pt-6 md:pt-8 z-20">
+        <FadeIn
+          delay={0}
+          y={-20}
+          as="nav"
+          className="bg-white/60 backdrop-blur-md rounded-2xl shadow-sm pl-3 sm:pl-4 pr-2 py-2 w-full sm:w-auto flex items-center gap-3 sm:gap-6"
+        >
+          {/* Logo SVG */}
+          <svg width="32" height="32" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+            <path d="M 256 256 L 128 256 L 0 128 L 128 128 Z M 256 128 L 128 128 L 0 0 L 128 0 Z" fill="black" />
+          </svg>
+
+          {/* Links */}
+          <div className="hidden sm:flex items-center gap-3 sm:gap-6">
+            <a
+              href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                onScrollToSection('about');
+              }}
+              className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap select-none"
+            >
+              About
+            </a>
+            <a
+              href="#services"
+              onClick={(e) => {
+                e.preventDefault();
+                onScrollToSection('services');
+              }}
+              className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap select-none"
+            >
+              Price
+            </a>
+            <a
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                onScrollToSection('projects');
+              }}
+              className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap select-none"
+            >
+              Projects
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                onScrollToSection('contact');
+              }}
+              className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap select-none"
+            >
+              Contact
+            </a>
+          </div>
+
+          {/* CTA Button */}
+          <button
+            onClick={() => onScrollToSection('contact')}
+            className="bg-black text-white text-sm font-medium px-4 sm:px-5 py-2 rounded-xl hover:bg-gray-800 transition-colors ml-auto sm:ml-0 whitespace-nowrap"
+          >
+            Start a project
+          </button>
+        </FadeIn>
+      </div>
+
+      {/* Hero Heading */}
+      <div className="w-full overflow-hidden flex items-center justify-center z-0 px-6">
+        <FadeIn delay={0.15} y={40} className="w-full text-center mt-6 sm:mt-4 md:-mt-5">
+          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[17.5vw] select-none">
+            Welcome
+          </h1>
+        </FadeIn>
+      </div>
+
+      {/* Spacer */}
+      <div className="flex-1 min-h-[2rem]" />
+
+      {/* Bottom Bar */}
+      <div className="w-full flex justify-between items-end px-6 md:px-10 pb-7 sm:pb-8 md:pb-10 z-20">
+        <FadeIn delay={0.35} y={20}>
+          <p
+            style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
+            className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px] select-none"
+          >
+            a 3d creator driven by crafting striking and unforgettable projects
+          </p>
+        </FadeIn>
+
+        <FadeIn delay={0.5} y={20}>
+          <ContactButton onClick={() => onScrollToSection('contact')} />
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
