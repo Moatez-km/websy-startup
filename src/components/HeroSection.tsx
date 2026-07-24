@@ -14,7 +14,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
   return (
     <section className="relative h-screen w-full flex flex-col justify-between overflow-hidden bg-[#0C0C0C]">
       {/* Absolute Portrait */}
-      <div className="absolute left-1/2 -translate-x-1/2 z-10 w-[85vw] max-w-[380px] sm:w-[430px] md:w-[530px] lg:w-[630px] top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 pointer-events-none">
+      <div className="absolute left-1/2 -translate-x-1/2 z-10 w-[130vw] max-w-[680px] sm:w-[800px] md:w-[950px] lg:w-[1100px] xl:w-[1200px] top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 pointer-events-none">
         <FadeIn delay={0.6} y={30} duration={0.8} className="w-full h-full flex justify-center items-end">
           <Magnet
             padding={150}
