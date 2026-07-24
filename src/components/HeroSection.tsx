@@ -11,7 +11,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
   return (
     <section className="relative h-screen w-full flex flex-col justify-between overflow-hidden bg-[#0C0C0C]">
       {/* Absolute Portrait */}
-      <div className="absolute left-1/2 -translate-x-1/2 z-10 w-[280px] sm:w-[360px] md:w-[440px] lg:w-[520px] top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 pointer-events-none">
+      <div className="absolute left-1/2 -translate-x-1/2 z-10 w-[330px] sm:w-[430px] md:w-[530px] lg:w-[630px] top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 pointer-events-none">
         <FadeIn delay={0.6} y={30} duration={0.8} className="w-full h-full flex justify-center items-end">
           <Magnet
             padding={150}
@@ -21,7 +21,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
             className="w-full h-full pointer-events-auto"
           >
             <img
-              src="https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png"
+              src="src\assets\Avatar-Hero.png"
               alt="Moatez Portrait"
               className="w-full h-auto object-contain select-none"
               draggable="false"
@@ -63,7 +63,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
               }}
               className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap select-none"
             >
-              Price
+              Services
             </a>
             <a
               href="#projects"
@@ -116,7 +116,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
             style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
             className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px] select-none"
           >
-            a 3d creator driven by crafting striking and unforgettable projects
+            Website creation and Google optimization to grow your business.
           </p>
         </FadeIn>
 
