@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ContactButton } from './ContactButton';
 import { FadeIn } from './FadeIn';
 import { Magnet } from './Magnet';
+import { Menu, X } from 'lucide-react';
 
 interface HeroSectionProps {
   onScrollToSection: (sectionId: string) => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <section className="relative h-screen w-full flex flex-col justify-between overflow-hidden bg-[#0C0C0C]">
       {/* Absolute Portrait */}
-      <div className="absolute left-1/2 -translate-x-1/2 z-10 w-[330px] sm:w-[430px] md:w-[530px] lg:w-[630px] top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 pointer-events-none">
+      <div className="absolute left-1/2 -translate-x-1/2 z-10 w-[85vw] max-w-[380px] sm:w-[430px] md:w-[530px] lg:w-[630px] top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 pointer-events-none">
         <FadeIn delay={0.6} y={30} duration={0.8} className="w-full h-full flex justify-center items-end">
           <Magnet
             padding={150}
@@ -31,12 +34,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
       </div>
 
       {/* Navbar */}
-      <div className="w-full flex justify-center px-6 pt-6 md:pt-8 z-20">
+      <div className="w-full flex justify-center px-6 pt-6 md:pt-8 z-20 relative">
         <FadeIn
           delay={0}
           y={-20}
           as="nav"
-          className="bg-white/60 backdrop-blur-md rounded-2xl shadow-sm pl-3 sm:pl-4 pr-2 py-2 w-full sm:w-auto flex items-center gap-3 sm:gap-6"
+          className="bg-white/60 backdrop-blur-md rounded-2xl shadow-sm pl-3 sm:pl-4 pr-2 py-2 w-full sm:w-auto flex items-center justify-between sm:justify-start gap-3 sm:gap-6 relative"
         >
           {/* Logo SVG */}
           <svg width="32" height="32" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
@@ -90,10 +93,77 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
           {/* CTA Button */}
           <button
             onClick={() => onScrollToSection('contact')}
-            className="bg-black text-white text-sm font-medium px-4 sm:px-5 py-2 rounded-xl hover:bg-gray-800 transition-colors ml-auto sm:ml-0 whitespace-nowrap"
+            className="hidden sm:block bg-black text-white text-sm font-medium px-4 sm:px-5 py-2 rounded-xl hover:bg-gray-800 transition-colors whitespace-nowrap"
           >
             Start a project
           </button>
+
+          {/* Mobile Sandwich Icon Button */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="sm:hidden text-gray-800 p-1.5 hover:bg-black/5 rounded-lg transition-colors ml-auto flex items-center justify-center"
+          >
+            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+
+          {/* Mobile Dropdown Menu */}
+          {menuOpen && (
+            <div className="absolute top-[calc(100%+8px)] left-0 right-0 bg-white/95 backdrop-blur-md rounded-2xl shadow-lg border border-gray-100 p-4 flex flex-col gap-4 sm:hidden z-30">
+              <a
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMenuOpen(false);
+                  onScrollToSection('about');
+                }}
+                className="text-gray-800 text-sm font-semibold hover:opacity-60 transition-opacity py-1.5 border-b border-gray-100"
+              >
+                About
+              </a>
+              <a
+                href="#services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMenuOpen(false);
+                  onScrollToSection('services');
+                }}
+                className="text-gray-800 text-sm font-semibold hover:opacity-60 transition-opacity py-1.5 border-b border-gray-100"
+              >
+                Services
+              </a>
+              <a
+                href="#projects"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMenuOpen(false);
+                  onScrollToSection('projects');
+                }}
+                className="text-gray-800 text-sm font-semibold hover:opacity-60 transition-opacity py-1.5 border-b border-gray-100"
+              >
+                Projects
+              </a>
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMenuOpen(false);
+                  onScrollToSection('contact');
+                }}
+                className="text-gray-800 text-sm font-semibold hover:opacity-60 transition-opacity py-1.5 border-b border-gray-100"
+              >
+                Contact
+              </a>
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  onScrollToSection('contact');
+                }}
+                className="bg-black text-white text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-gray-800 transition-colors w-full text-center"
+              >
+                Start a project
+              </button>
+            </div>
+          )}
         </FadeIn>
       </div>
 
