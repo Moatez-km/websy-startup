@@ -3,6 +3,7 @@ import { MarqueeSection } from './components/MarqueeSection';
 import { AboutSection } from './components/AboutSection';
 import { ServicesSection } from './components/ServicesSection';
 import { ProjectsSection } from './components/ProjectsSection';
+import { ContactSection } from './components/ContactSection';
 import { Mail, Github, Linkedin, MessageSquare } from 'lucide-react';
 import { FadeIn } from './components/FadeIn';
 
@@ -31,56 +32,38 @@ function App() {
       {/* 5. Projects Section */}
       <ProjectsSection />
 
-      {/* Footer / Contact Block */}
-      <footer
-        id="contact"
-        className="bg-[#0C0C0C] text-[#D7E2EA] px-5 sm:px-8 md:px-10 py-20 w-full border-t border-[#D7E2EA]/10 flex flex-col items-center relative z-20"
-      >
-        <div className="w-full max-w-5xl flex flex-col md:flex-row justify-between items-center gap-10">
-          <FadeIn delay={0} y={30} className="flex flex-col items-center md:items-start text-center md:text-left gap-4">
-            <h2 className="hero-heading font-black uppercase text-4xl sm:text-5xl md:text-6xl tracking-tight leading-none select-none">
-              Start a project
-            </h2>
-            <p className="text-sm sm:text-base font-light uppercase tracking-widest opacity-60">
-              Let&apos;s build something incredible together
-            </p>
-          </FadeIn>
+      {/* 6. Contact Section */}
+      <ContactSection />
 
-          <FadeIn delay={0.2} y={30} className="flex flex-col items-center md:items-end gap-4">
+      {/* Footer */}
+      <footer className="bg-[#0C0C0C] text-[#D7E2EA] px-5 sm:px-8 md:px-10 py-12 w-full border-t border-[#D7E2EA]/5 flex flex-col items-center relative z-20">
+        <div className="w-full max-w-5xl flex flex-col sm:flex-row justify-between items-center gap-6">
+          {/* Social Links */}
+          <div className="flex gap-4">
             <a
-              href="mailto:moatez@websy.com"
-              className="flex items-center gap-3 bg-[#D7E2EA]/5 hover:bg-[#D7E2EA]/10 border border-[#D7E2EA]/20 hover:border-[#D7E2EA]/40 px-6 py-4 rounded-full text-base sm:text-lg font-medium tracking-wide uppercase transition-all duration-300 select-none"
+              href="#"
+              className="w-10 h-10 rounded-full border border-[#D7E2EA]/20 flex items-center justify-center hover:bg-[#D7E2EA]/10 hover:border-[#D7E2EA]/50 transition-all duration-300"
             >
-              <Mail className="w-5 h-5" />
-              moatez@websy.com
+              <Github className="w-4 h-4" />
             </a>
+            <a
+              href="#"
+              className="w-10 h-10 rounded-full border border-[#D7E2EA]/20 flex items-center justify-center hover:bg-[#D7E2EA]/10 hover:border-[#D7E2EA]/50 transition-all duration-300"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+            <a
+              href="#"
+              className="w-10 h-10 rounded-full border border-[#D7E2EA]/20 flex items-center justify-center hover:bg-[#D7E2EA]/10 hover:border-[#D7E2EA]/50 transition-all duration-300"
+            >
+              <MessageSquare className="w-4 h-4" />
+            </a>
+          </div>
 
-            <div className="flex gap-4 mt-2">
-              <a
-                href="#"
-                className="w-12 h-12 rounded-full border border-[#D7E2EA]/20 flex items-center justify-center hover:bg-[#D7E2EA]/10 hover:border-[#D7E2EA]/50 transition-all duration-300"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 rounded-full border border-[#D7E2EA]/20 flex items-center justify-center hover:bg-[#D7E2EA]/10 hover:border-[#D7E2EA]/50 transition-all duration-300"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 rounded-full border border-[#D7E2EA]/20 flex items-center justify-center hover:bg-[#D7E2EA]/10 hover:border-[#D7E2EA]/50 transition-all duration-300"
-              >
-                <MessageSquare className="w-5 h-5" />
-              </a>
-            </div>
-          </FadeIn>
-        </div>
-
-        <div className="w-full max-w-5xl border-t border-[#D7E2EA]/10 mt-16 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm font-light tracking-wide uppercase opacity-40">
-          <span>&copy; {new Date().getFullYear()} Websy-Startup. All rights reserved.</span>
-          <span>Designed &amp; Developed for Moatez</span>
+          <div className="flex flex-col sm:items-end gap-1 text-[10px] sm:text-xs font-light tracking-widest uppercase opacity-40 text-center sm:text-right">
+            <span>&copy; {new Date().getFullYear()} Websy-Startup. All rights reserved.</span>
+            <span>Designed &amp; Developed for Moatez</span>
+          </div>
         </div>
       </footer>
     </div>
