@@ -33,13 +33,16 @@ const FEATURES2 = [
 ];
 
 export const ServicesSection: React.FC = () => {
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    date: '',
+    date: todayStr,
     time: '',
     description: '',
   });
@@ -59,7 +62,7 @@ export const ServicesSection: React.FC = () => {
         name: '',
         email: '',
         phone: '',
-        date: '',
+        date: todayStr,
         time: '',
         description: '',
       });
@@ -406,6 +409,7 @@ export const ServicesSection: React.FC = () => {
                             type="date"
                             name="date"
                             required
+                            min={todayStr}
                             value={formData.date}
                             onChange={handleChange}
                             className="w-full bg-[#D7E2EA]/5 border border-[#D7E2EA]/10 rounded-xl pl-10 pr-4 py-2.5 focus:border-[#B600A8] focus:ring-1 focus:ring-[#B600A8]/20 focus:outline-none transition-all text-sm font-light text-[#D7E2EA] [color-scheme:dark]"
