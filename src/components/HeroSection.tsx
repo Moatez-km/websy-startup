@@ -92,7 +92,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
 
           {/* CTA Button */}
           <button
-            onClick={() => onScrollToSection('contact')}
+            onClick={() => onScrollToSection('services')}
             className="hidden sm:block bg-black text-white text-sm font-medium px-4 sm:px-5 py-2 rounded-xl hover:bg-gray-800 transition-colors whitespace-nowrap"
           >
             Start a project
@@ -156,7 +156,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
               <button
                 onClick={() => {
                   setMenuOpen(false);
-                  onScrollToSection('contact');
+                  onScrollToSection('services');
                 }}
                 className="bg-black text-white text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-gray-800 transition-colors w-full text-center"
               >
