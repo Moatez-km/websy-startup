@@ -86,7 +86,7 @@ export const ServicesSection: React.FC = () => {
 
     // Web3Forms Access Key
     // Replace with your real Web3Forms Access Key from https://web3forms.com/
-    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE';
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || 'd9bb2d05-f9cc-4f34-a6ec-d768e6b640a7';
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {

@@ -9,6 +9,9 @@ export const ContactSection: React.FC = () => {
     website: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -17,11 +20,56 @@ export const ContactSection: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Message sent successfully!');
-    setFormData({ name: '', email: '', website: '', message: '' });
+    setIsSubmitting(true);
+    setErrorMsg('');
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || 'd9bb2d05-f9cc-4f34-a6ec-d768e6b640a7';
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `New Message from Contact Form: ${formData.name}`,
+          from_name: 'Websy Contact',
+          replyto: formData.email,
+          name: formData.name,
+          email: formData.email,
+          website: formData.website,
+          message: `You have a new message from Websy contact form:
+
+Client Name: ${formData.name}
+Client Email: ${formData.email}
+Client Website: ${formData.website || 'N/A'}
+
+Message:
+${formData.message}`,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setIsSuccess(true);
+        setFormData({ name: '', email: '', website: '', message: '' });
+        // Reset success state after 5 seconds
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 5000);
+      } else {
+        setErrorMsg(result.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setErrorMsg('Failed to connect to email service. Please check your internet connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -151,19 +199,38 @@ export const ContactSection: React.FC = () => {
                 />
               </div>
 
+              {errorMsg && (
+                <p className="text-xs text-red-500 font-medium">
+                  {errorMsg}
+                </p>
+              )}
+
+              {isSuccess && (
+                <p className="text-xs text-green-500 font-medium">
+                  Message sent successfully!
+                </p>
+              )}
+
               {/* Submit Button */}
               <div className="mt-2">
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   style={{
-                    background: 'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
-                    boxShadow: 'inset 0px 4px 4px rgba(181, 1, 167, 0.25), inset 4px 4px 12px #7721B1',
-                    outline: '2px solid #FFFFFF',
+                    background: isSubmitting
+                      ? '#333'
+                      : 'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
+                    boxShadow: isSubmitting
+                      ? 'none'
+                      : 'inset 0px 4px 4px rgba(181, 1, 167, 0.25), inset 4px 4px 12px #7721B1',
+                    outline: isSubmitting ? 'none' : '2px solid #FFFFFF',
                     outlineOffset: '-3px',
                   }}
-                  className="w-full sm:w-auto rounded-full text-white font-medium uppercase tracking-widest px-8 py-3.5 sm:px-10 sm:py-4 md:px-12 md:py-4.5 text-xs sm:text-sm hover:opacity-90 active:scale-95 transition-all duration-200 select-none flex items-center justify-center gap-2 cursor-pointer"
+                  className={`w-full sm:w-auto rounded-full text-white font-medium uppercase tracking-widest px-8 py-3.5 sm:px-10 sm:py-4 md:px-12 md:py-4.5 text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-200 select-none ${
+                    isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90 active:scale-95 cursor-pointer'
+                  }`}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
               </div>
