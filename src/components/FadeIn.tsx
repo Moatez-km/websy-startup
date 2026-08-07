@@ -12,6 +12,8 @@ interface FadeInProps {
   style?: React.CSSProperties;
 }
 
+const componentCache: Record<string, any> = {};
+
 export const FadeIn: React.FC<FadeInProps> = ({
   children,
   delay = 0,
@@ -22,7 +24,10 @@ export const FadeIn: React.FC<FadeInProps> = ({
   className = '',
   style,
 }) => {
-  const MotionComponent = motion.create(as as any);
+  if (!componentCache[as]) {
+    componentCache[as] = motion.create(as as any);
+  }
+  const MotionComponent = componentCache[as];
 
   return (
     <MotionComponent
