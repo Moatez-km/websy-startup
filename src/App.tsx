@@ -42,7 +42,7 @@ function App() {
           {/* Column 1 - Brand Info */}
           <div className="flex flex-col gap-4">
             <h3 className="hero-heading font-black uppercase text-xl sm:text-2xl tracking-tight select-none">
-              Websy
+              Websy Service
             </h3>
             <p className="text-xs sm:text-sm font-light text-[#D7E2EA]/60 leading-relaxed">
               A premium digital agency creating modern websites, tailored marketing, and exceptional brand identities that help local businesses thrive.
@@ -98,23 +98,23 @@ function App() {
             <ul className="flex flex-col gap-2.5 text-xs sm:text-sm font-light text-[#D7E2EA]/60">
               <li>
                 <a
-                  href="tel:+491529988411"
+                  href="tel:+4917654452376"
                   className="hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
                 >
-                  +49 152 998 8411
+                  +49 176 544 52376
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:moatez@websy.com"
+                  href="mailto:info@websy-service.de"
                   className="hover:text-white transition-colors duration-300 hover:underline underline-offset-4 break-all"
                 >
-                  moatez@websy.com
+                  info@websy-service.de
                 </a>
               </li>
               <li>
                 <span className="leading-relaxed">
-                  912 Nova Street, Sector 14, Berlin
+                  Juri-Gargarin-Ring 22 , 99084 Erfurt , Thuringen - Germany.
                 </span>
               </li>
             </ul>

@@ -47,6 +47,8 @@ export const ServicesSection: React.FC = () => {
     description: '',
   });
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleOpen = (serviceName: string) => {
     setSelectedService(serviceName);
@@ -77,17 +79,64 @@ export const ServicesSection: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Meeting Booking Request:', {
-      service: selectedService,
-      ...formData,
-    });
-    setIsSuccess(true);
-    // Automatically close after showing success screen
-    setTimeout(() => {
-      handleClose();
-    }, 2000);
+    setIsSubmitting(true);
+    setErrorMsg('');
+
+    // Web3Forms Access Key
+    // Replace with your real Web3Forms Access Key from https://web3forms.com/
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE';
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `New Appointment Booking: ${formData.name}`,
+          from_name: 'Websy Online',
+          replyto: formData.email,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          date: formData.date,
+          time: formData.time,
+          description: formData.description,
+          service: selectedService,
+          message: `You have a new appointment booking request from Websy:
+
+Client Name: ${formData.name}
+Client Email: ${formData.email}
+Client Phone: ${formData.phone}
+Service Requested: ${selectedService}
+Preferred Date: ${formData.date}
+Preferred Time: ${formData.time}
+
+Client Message/Description:
+${formData.description}`,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setIsSuccess(true);
+        // Automatically close popup after 3 seconds
+        setTimeout(() => {
+          handleClose();
+        }, 3000);
+      } else {
+        setErrorMsg(result.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setErrorMsg('Failed to connect to email service. Please check your internet connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -440,20 +489,31 @@ export const ServicesSection: React.FC = () => {
                         className="w-full bg-[#D7E2EA]/5 border border-[#D7E2EA]/10 rounded-xl px-4 py-2.5 focus:border-[#B600A8] focus:ring-1 focus:ring-[#B600A8]/20 focus:outline-none transition-all text-sm font-light text-[#D7E2EA] placeholder:text-[#D7E2EA]/30 resize-none"
                       />
 
+                      {errorMsg && (
+                        <p className="text-xs text-red-500 text-center font-medium mt-1">
+                          {errorMsg}
+                        </p>
+                      )}
+
                       {/* Submit */}
                       <button
                         type="submit"
+                        disabled={isSubmitting}
                         style={{
-                          background:
-                            'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
-                          boxShadow:
-                            'inset 0px 4px 4px rgba(181, 1, 167, 0.25), inset 4px 4px 12px #7721B1',
-                          outline: '2px solid #FFFFFF',
+                          background: isSubmitting
+                            ? '#333'
+                            : 'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
+                          boxShadow: isSubmitting
+                            ? 'none'
+                            : 'inset 0px 4px 4px rgba(181, 1, 167, 0.25), inset 4px 4px 12px #7721B1',
+                          outline: isSubmitting ? 'none' : '2px solid #FFFFFF',
                           outlineOffset: '-3px',
                         }}
-                        className="w-full rounded-full text-white font-medium uppercase tracking-widest py-3 hover:opacity-90 active:scale-98 transition-all text-xs cursor-pointer mt-2"
+                        className={`w-full rounded-full text-white font-medium uppercase tracking-widest py-3 transition-all text-xs mt-2 ${
+                          isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90 active:scale-98 cursor-pointer'
+                        }`}
                       >
-                        Confirm Booking
+                        {isSubmitting ? 'Sending...' : 'Confirm Booking'}
                       </button>
                     </form>
                   </motion.div>
@@ -470,13 +530,28 @@ export const ServicesSection: React.FC = () => {
                     </div>
                     <h3 className="text-xl font-bold">Booking Confirmed!</h3>
                     <p className="text-sm font-light text-[#D7E2EA]/60 max-w-xs leading-relaxed">
-                      Thank you for booking a call. We will contact you at your
-                      chosen date and time:
-                      <br />
+                      Thank you for booking a call. We will contact you at your chosen date and time:
                       <strong className="text-white mt-1.5 block">
                         {formData.date} at {formData.time}
                       </strong>
                     </p>
+                    <p className="text-xs text-[#D7E2EA]/40 mt-1">
+                      An email confirmation has been sent to your address.
+                    </p>
+                    <button
+                      onClick={handleClose}
+                      style={{
+                        background:
+                          'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
+                        boxShadow:
+                          'inset 0px 4px 4px rgba(181, 1, 167, 0.25), inset 4px 4px 12px #7721B1',
+                        outline: '2px solid #FFFFFF',
+                        outlineOffset: '-3px',
+                      }}
+                      className="w-full rounded-full text-white font-medium uppercase tracking-widest py-3 hover:opacity-90 active:scale-98 transition-all text-xs cursor-pointer mt-4"
+                    >
+                      Close Window
+                    </button>
                   </motion.div>
                 )}
               </AnimatePresence>

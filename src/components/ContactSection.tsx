@@ -47,7 +47,7 @@ export const ContactSection: React.FC = () => {
           <FadeIn delay={0.2} y={30} className="flex flex-col gap-6 sm:gap-8">
             {/* Email info */}
             <a
-              href="mailto:moatez@websy.com"
+              href="mailto:info@websy-service.de"
               className="flex items-center gap-4 group cursor-pointer w-fit"
             >
               <div className="w-12 h-12 rounded-full border border-[#D7E2EA]/10 flex items-center justify-center bg-transparent group-hover:bg-[#D7E2EA]/5 group-hover:border-[#D7E2EA]/30 transition-all duration-300">
@@ -56,7 +56,7 @@ export const ContactSection: React.FC = () => {
               <div className="flex flex-col">
                 <span className="text-[10px] uppercase tracking-widest text-[#D7E2EA]/40 font-medium">Email Us</span>
                 <span className="text-sm sm:text-base font-medium text-[#D7E2EA]/85 group-hover:text-white transition-colors">
-                  moatez@websy.com
+                  info@websy-service.de
                 </span>
               </div>
             </a>
@@ -69,14 +69,14 @@ export const ContactSection: React.FC = () => {
               <div className="flex flex-col">
                 <span className="text-[10px] uppercase tracking-widest text-[#D7E2EA]/40 font-medium">Visit Us</span>
                 <span className="text-sm sm:text-base font-medium text-[#D7E2EA]/85">
-                  912 Nova Street, Sector 14, Berlin
+                  Juri-Gargarin-Ring 22 , 99084 Erfurt , Thuringen - Germany.
                 </span>
               </div>
             </div>
 
             {/* Phone info */}
             <a
-              href="tel:+491529988411"
+              href="tel:+4917654452376"
               className="flex items-center gap-4 group cursor-pointer w-fit"
             >
               <div className="w-12 h-12 rounded-full border border-[#D7E2EA]/10 flex items-center justify-center bg-transparent group-hover:bg-[#D7E2EA]/5 group-hover:border-[#D7E2EA]/30 transition-all duration-300">
@@ -85,7 +85,7 @@ export const ContactSection: React.FC = () => {
               <div className="flex flex-col">
                 <span className="text-[10px] uppercase tracking-widest text-[#D7E2EA]/40 font-medium">Call Us</span>
                 <span className="text-sm sm:text-base font-medium text-[#D7E2EA]/85 group-hover:text-white transition-colors">
-                  +49 152 998 8411
+                  +49 176 544 52376
                 </span>
               </div>
             </a>
