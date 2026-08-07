@@ -17,10 +17,6 @@ const Char: React.FC<CharProps> = ({ char, index, total, progress }) => {
   // Transform scroll progress to absolute span opacity (0 to 1)
   const opacity = useTransform(progress, [start, end], [0, 1]);
 
-  if (char === ' ') {
-    return <span>&nbsp;</span>;
-  }
-
   return (
     <span className="relative inline-block select-none">
       {/* 0.2 opacity placeholder */}
@@ -48,7 +44,8 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = ''
     offset: ['start 0.8', 'end 0.2'],
   });
 
-  const chars = text.split('');
+  const words = text.split(' ');
+  let charCount = 0;
 
   return (
     <p
@@ -56,15 +53,32 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = ''
       className={`text-center font-medium leading-relaxed max-w-[560px] text-[#D7E2EA] select-none ${className}`}
       style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}
     >
-      {chars.map((char, index) => (
-        <Char
-          key={index}
-          char={char}
-          index={index}
-          total={chars.length}
-          progress={scrollYProgress}
-        />
-      ))}
+      {words.map((word, wordIdx) => {
+        const wordChars = word.split('');
+        const wordStartIdx = charCount;
+        // Increment global character count by word length plus 1 for the space
+        charCount += wordChars.length + 1;
+
+        return (
+          <React.Fragment key={wordIdx}>
+            <span className="inline-block whitespace-nowrap">
+              {wordChars.map((char, charIdx) => {
+                const globalIdx = wordStartIdx + charIdx;
+                return (
+                  <Char
+                    key={charIdx}
+                    char={char}
+                    index={globalIdx}
+                    total={text.length}
+                    progress={scrollYProgress}
+                  />
+                );
+              })}
+            </span>
+            {wordIdx < words.length - 1 && ' '}
+          </React.Fragment>
+        );
+      })}
     </p>
   );
 };
