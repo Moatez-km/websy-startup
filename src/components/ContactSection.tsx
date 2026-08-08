@@ -25,7 +25,7 @@ export const ContactSection: React.FC = () => {
     setIsSubmitting(true);
     setErrorMsg('');
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || 'd9bb2d05-f9cc-4f34-a6ec-d768e6b640a7';
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
