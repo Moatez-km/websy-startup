@@ -24,7 +24,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
             className="w-full h-full pointer-events-auto"
           >
             <img
-              src="images/Avatar-Hero.png"
+              src="images/Avatar-Hero.avif"
               alt="Moatez Portrait"
               className="w-full h-auto object-contain select-none"
               draggable="false"

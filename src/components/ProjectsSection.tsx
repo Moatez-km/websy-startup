@@ -91,12 +91,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, total }) => {
               alt={`${project.name} layout 1`}
               className="w-full object-cover rounded-[20px] sm:rounded-[35px] md:rounded-[40px] flex-shrink-0"
               style={{ height: 'clamp(110px, 15vw, 210px)' }}
+              loading="lazy"
             />
             <img
               src={project.img2}
               alt={`${project.name} layout 2`}
               className="w-full object-cover rounded-[20px] sm:rounded-[35px] md:rounded-[40px] flex-grow"
               style={{ height: 'clamp(140px, 20vw, 300px)' }}
+              loading="lazy"
             />
           </div>
 
@@ -106,6 +108,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, total }) => {
               src={project.img3}
               alt={`${project.name} layout 3`}
               className="w-full h-full object-contain rounded-[20px] sm:rounded-[35px] md:rounded-[40px]"
+              loading="lazy"
             />
           </div>
         </div>
