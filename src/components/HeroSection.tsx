@@ -170,7 +170,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
       {/* Hero Heading */}
       <div className="w-full overflow-hidden flex items-center justify-center z-0 px-6">
         <FadeIn delay={0.15} y={40} className="w-full text-center mt-6 sm:mt-4 md:-mt-5">
-          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[12vw] select-none">
+          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[9vw] sm:text-[10vw] md:text-[10vw] lg:text-[12vw] select-none">
             Websy Service
           </h1>
         </FadeIn>
