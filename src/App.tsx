@@ -45,7 +45,7 @@ function App() {
               Websy Service
             </h3>
             <p className="text-xs sm:text-sm font-light text-[#D7E2EA]/60 leading-relaxed">
-              A premium digital agency creating modern websites, tailored marketing, and exceptional brand identities that help local businesses thrive.
+              Eine Premium-Digitalagentur, die moderne Websites, maßgeschneidertes Marketing und außergewöhnliche Markenidentitäten kreiert, um lokalen Unternehmen zum Erfolg zu verhelfen.
             </p>
           </div>
 
@@ -60,7 +60,7 @@ function App() {
                   onClick={() => scrollToSection('hero')}
                   className="hover:text-white transition-colors duration-300 hover:underline underline-offset-4 cursor-pointer text-left"
                 >
-                  Home
+                  Startseite
                 </button>
               </li>
               <li>
@@ -68,7 +68,7 @@ function App() {
                   onClick={() => scrollToSection('about')}
                   className="hover:text-white transition-colors duration-300 hover:underline underline-offset-4 cursor-pointer text-left"
                 >
-                  About Us
+                  Über uns
                 </button>
               </li>
               <li>
@@ -76,7 +76,7 @@ function App() {
                   onClick={() => scrollToSection('services')}
                   className="hover:text-white transition-colors duration-300 hover:underline underline-offset-4 cursor-pointer text-left"
                 >
-                  Services
+                  Leistungen
                 </button>
               </li>
               <li>
@@ -84,7 +84,7 @@ function App() {
                   onClick={() => scrollToSection('projects')}
                   className="hover:text-white transition-colors duration-300 hover:underline underline-offset-4 cursor-pointer text-left"
                 >
-                  Projects
+                  Projekte
                 </button>
               </li>
             </ul>
@@ -93,7 +93,7 @@ function App() {
           {/* Column 3 - Information */}
           <div className="flex flex-col gap-4">
             <h4 className="text-[#D7E2EA] font-semibold text-xs sm:text-sm tracking-wider uppercase">
-              Information
+              Informationen
             </h4>
             <ul className="flex flex-col gap-2.5 text-xs sm:text-sm font-light text-[#D7E2EA]/60">
               <li>
@@ -114,7 +114,7 @@ function App() {
               </li>
               <li>
                 <span className="leading-relaxed">
-                  Juri-Gargarin-Ring 22 , 99084 Erfurt , Thuringen - Germany.
+                  Juri-Gagarin-Ring 22, 99084 Erfurt, Thüringen - Deutschland.
                 </span>
               </li>
             </ul>
@@ -123,24 +123,24 @@ function App() {
           {/* Column 4 - Opening Hours */}
           <div className="flex flex-col gap-4">
             <h4 className="text-[#D7E2EA] font-semibold text-xs sm:text-sm tracking-wider uppercase">
-              Opening Hours
+              Öffnungszeiten
             </h4>
             <ul className="flex flex-col gap-2.5 text-xs sm:text-sm font-light text-[#D7E2EA]/60">
               <li className="flex justify-between">
-                <span>Mon - Thu:</span>
-                <span className="font-medium text-[#D7E2EA]/80">9:00 - 21:00</span>
+                <span>Mo - Do:</span>
+                <span className="font-medium text-[#D7E2EA]/80">9:00 - 21:00 Uhr</span>
               </li>
               <li className="flex justify-between">
-                <span>Fri:</span>
-                <span className="font-medium text-[#D7E2EA]/80">8:00 - 21:00</span>
+                <span>Fr:</span>
+                <span className="font-medium text-[#D7E2EA]/80">8:00 - 21:00 Uhr</span>
               </li>
               <li className="flex justify-between">
-                <span>Sat:</span>
-                <span className="font-medium text-[#D7E2EA]/80">9:30 - 15:00</span>
+                <span>Sa:</span>
+                <span className="font-medium text-[#D7E2EA]/80">9:30 - 15:00 Uhr</span>
               </li>
               <li className="flex justify-between text-[#D7E2EA]/40">
-                <span>Sun:</span>
-                <span>Off</span>
+                <span>So:</span>
+                <span>Geschlossen</span>
               </li>
             </ul>
           </div>

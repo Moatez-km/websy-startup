@@ -56,7 +56,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
               }}
               className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap select-none"
             >
-              About
+              Über mich
             </a>
             <a
               href="#services"
@@ -66,7 +66,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
               }}
               className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap select-none"
             >
-              Services
+              Leistungen
             </a>
             <a
               href="#projects"
@@ -76,7 +76,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
               }}
               className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap select-none"
             >
-              Projects
+              Projekte
             </a>
             <a
               href="#contact"
@@ -86,7 +86,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
               }}
               className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap select-none"
             >
-              Contact
+              Kontakt
             </a>
           </div>
 
@@ -95,7 +95,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
             onClick={() => onScrollToSection('services')}
             className="hidden sm:block bg-black text-white text-sm font-medium px-4 sm:px-5 py-2 rounded-xl hover:bg-gray-800 transition-colors whitespace-nowrap"
           >
-            Start a project
+            Projekt starten
           </button>
 
           {/* Mobile Sandwich Icon Button */}
@@ -118,7 +118,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
                 }}
                 className="text-gray-800 text-sm font-semibold hover:opacity-60 transition-opacity py-1.5 border-b border-gray-100"
               >
-                About
+                Über mich
               </a>
               <a
                 href="#services"
@@ -129,7 +129,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
                 }}
                 className="text-gray-800 text-sm font-semibold hover:opacity-60 transition-opacity py-1.5 border-b border-gray-100"
               >
-                Services
+                Leistungen
               </a>
               <a
                 href="#projects"
@@ -140,7 +140,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
                 }}
                 className="text-gray-800 text-sm font-semibold hover:opacity-60 transition-opacity py-1.5 border-b border-gray-100"
               >
-                Projects
+                Projekte
               </a>
               <a
                 href="#contact"
@@ -151,7 +151,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
                 }}
                 className="text-gray-800 text-sm font-semibold hover:opacity-60 transition-opacity py-1.5 border-b border-gray-100"
               >
-                Contact
+                Kontakt
               </a>
               <button
                 onClick={() => {
@@ -160,7 +160,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
                 }}
                 className="bg-black text-white text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-gray-800 transition-colors w-full text-center"
               >
-                Start a project
+                Projekt starten
               </button>
             </div>
           )}

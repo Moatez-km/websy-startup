@@ -4,32 +4,32 @@ import { FadeIn } from './FadeIn';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const FEATURES = [
-  'Custom, conversion-focused design',
-  '100% responsive',
-  'SEO optimization',
-  'Security and GDPR compliance',
-  'Basic email support available.',
-  'Training on site management',
+  'Individuelles, Conversion-orientiertes Design',
+  '100% responsive (mobilfreundlich)',
+  'SEO-Optimierung',
+  'Sicherheit & DSGVO-Konformität',
+  'Einfacher E-Mail-Support verfügbar.',
+  'Schulung zur Website-Verwaltung',
 ];
 const FEATURES1 = [
-  'Custom, conversion-focused design',
-  '100% responsive',
-  'Multiple pages (services, contact, about...)',
-  'SEO optimization',
-  'Comprehensive SEO strategy for Google',
-  'Security and GDPR compliance',
-  'Basic email support available.',
-  'Training on site management',
+  'Individuelles, Conversion-orientiertes Design',
+  '100% responsive (mobilfreundlich)',
+  'Mehrere Seiten (Dienstleistungen, Kontakt, Über uns...)',
+  'SEO-Optimierung',
+  'Umfassende SEO-Strategie für Google',
+  'Sicherheit & DSGVO-Konformität',
+  'Einfacher E-Mail-Support verfügbar.',
+  'Schulung zur Website-Verwaltung',
 ];
 const FEATURES2 = [
-  'Custom, conversion-focused design',
-  '100% responsive',
-  'SEO optimization',
-  'Security and GDPR compliance',
-  'Product catalog (up to 25 products)',
-  'Secure payment via Stripe',
-  'Basic email support available.',
-  'Training on site management',
+  'Individuelles, Conversion-orientiertes Design',
+  '100% responsive (mobilfreundlich)',
+  'SEO-Optimierung',
+  'Sicherheit & DSGVO-Konformität',
+  'Produktkatalog (bis zu 25 Produkte)',
+  'Sichere Zahlung über Stripe',
+  'Einfacher E-Mail-Support verfügbar.',
+  'Schulung zur Website-Verwaltung',
 ];
 
 export const ServicesSection: React.FC = () => {
@@ -97,7 +97,7 @@ export const ServicesSection: React.FC = () => {
         },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: `New Appointment Booking: ${formData.name}`,
+          subject: `Neue Terminbuchung: ${formData.name}`,
           from_name: 'Websy Online',
           replyto: formData.email,
           name: formData.name,
@@ -107,16 +107,16 @@ export const ServicesSection: React.FC = () => {
           time: formData.time,
           description: formData.description,
           service: selectedService,
-          message: `You have a new appointment booking request from Websy:
+          message: `Sie haben eine neue Terminbuchungsanfrage über Websy erhalten:
 
-Client Name: ${formData.name}
-Client Email: ${formData.email}
-Client Phone: ${formData.phone}
-Service Requested: ${selectedService}
-Preferred Date: ${formData.date}
-Preferred Time: ${formData.time}
+Name des Kunden: ${formData.name}
+E-Mail des Kunden: ${formData.email}
+Telefon des Kunden: ${formData.phone}
+Angeforderter Service: ${selectedService}
+Gewünschtes Datum: ${formData.date}
+Gewünschte Uhrzeit: ${formData.time}
 
-Client Message/Description:
+Nachricht/Beschreibung des Kunden:
 ${formData.description}`,
         }),
       });
@@ -129,11 +129,11 @@ ${formData.description}`,
           handleClose();
         }, 3000);
       } else {
-        setErrorMsg(result.message || 'Something went wrong. Please try again.');
+        setErrorMsg(result.message || 'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      setErrorMsg('Failed to connect to email service. Please check your internet connection.');
+      setErrorMsg('Verbindung zum E-Mail-Dienst fehlgeschlagen. Bitte überprüfen Sie Ihre Internetverbindung.');
     } finally {
       setIsSubmitting(false);
     }
@@ -149,19 +149,19 @@ ${formData.description}`,
         <FadeIn delay={0} y={20}>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-xs font-semibold uppercase text-gray-600 mb-6 select-none">
             <Tag className="w-3.5 h-3.5 text-blue-600" />
-            Pricing Plan
+            Preispakete
           </div>
         </FadeIn>
 
         {/* Section Heading */}
         <FadeIn delay={0.1} y={30}>
           <h2 className="text-center font-black uppercase text-[clamp(2rem,6vw,64px)] text-[#0C0C0C] leading-tight mb-4 select-none">
-            Explore Our{' '}
+            Entdecken Sie unseren{' '}
             <span
               style={{ fontFamily: "'Instrument Serif', serif" }}
               className="italic lowercase font-normal text-blue-600"
             >
-              affordable
+              preiswerten
             </span>{' '}
             Service !
           </h2>
@@ -170,10 +170,7 @@ ${formData.description}`,
         {/* Subtitle */}
         <FadeIn delay={0.15} y={20}>
           <p className="text-center text-sm sm:text-base font-light text-gray-500 max-w-xl mb-8 leading-relaxed select-none">
-            Hosting and maintenance are available as options. These rates give
-            you an idea of ​​the budget based on project complexity. Each site
-            is built according to your needs—the final price is determined
-            collaboratively.
+            Hosting und Wartung sind optional verfügbar. Diese Preise geben Ihnen eine Vorstellung des Budgets basierend auf der Komplexität des Projekts. Jede Website wird individuell nach Ihren Wünschen erstellt – der Endpreis wird gemeinsam festgelegt.
           </p>
         </FadeIn>
 
@@ -187,23 +184,23 @@ ${formData.description}`,
           >
             <div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Landing page
+                Landingpage
               </h3>
               <p className="text-xs text-gray-500 mb-6">
-                Landing Page Starting at €199 / project
+                Landingpage ab 199 € / Projekt
               </p>
 
               <button
-                onClick={() => handleOpen('Landing page')}
+                onClick={() => handleOpen('Landingpage')}
                 className="w-full border border-gray-300 text-gray-800 rounded-xl py-2.5 font-medium hover:bg-gray-50 transition-colors text-center text-sm mb-8 cursor-pointer"
               >
-                Request a Quote
+                Angebot anfragen
               </button>
 
               <div className="h-[1px] bg-gray-100 w-full mb-6" />
 
               <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-4">
-                Features Included
+                Inklusive Leistungen
               </h4>
               <ul className="flex flex-col gap-3.5">
                 {FEATURES.map((feature, idx) => {
@@ -246,31 +243,31 @@ ${formData.description}`,
             <div>
               {/* Popular Badge */}
               <div className="absolute top-4 right-4 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
-                Popular
+                Beliebt
               </div>
 
               <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Showcase Website
+                Showcase-Website
               </h3>
               <p className="text-xs text-gray-500 mb-6">
-                Quote-based, tailored to your project
+                Auf Anfrage, individuell auf Ihr Projekt abgestimmt
               </p>
 
               <button
-                onClick={() => handleOpen('Showcase Website')}
+                onClick={() => handleOpen('Showcase-Website')}
                 style={{
                   background:
                     'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
                 }}
                 className="w-full text-white rounded-xl py-2.5 font-medium hover:opacity-90 transition-opacity text-center text-sm mb-8 shadow-sm cursor-pointer"
               >
-                Request a Quote
+                Angebot anfragen
               </button>
 
               <div className="h-[1px] bg-gray-100 w-full mb-6" />
 
               <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-4">
-                Features Included
+                Inklusive Leistungen
               </h4>
               <ul className="flex flex-col gap-3.5">
                 {FEATURES1.map((feature, idx) => {
@@ -312,23 +309,23 @@ ${formData.description}`,
           >
             <div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
-                E-commerce site
+                Onlineshop
               </h3>
               <p className="text-xs text-gray-500 mb-6">
-                Quote-based, tailored to your project
+                Auf Anfrage, individuell auf Ihr Projekt abgestimmt
               </p>
 
               <button
-                onClick={() => handleOpen('E-commerce site')}
+                onClick={() => handleOpen('Onlineshop')}
                 className="w-full border border-gray-300 text-gray-800 rounded-xl py-2.5 font-medium hover:bg-gray-50 transition-colors text-center text-sm mb-8 cursor-pointer"
               >
-                Request a Quote
+                Angebot anfragen
               </button>
 
               <div className="h-[1px] bg-gray-100 w-full mb-6" />
 
               <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-4">
-                Features Included
+                Inklusive Leistungen
               </h4>
               <ul className="flex flex-col gap-3.5">
                 {FEATURES2.map((feature, idx) => {
@@ -404,13 +401,13 @@ ${formData.description}`,
                   >
                     <div>
                       <span className="text-[10px] sm:text-xs font-semibold tracking-widest text-[#D7E2EA]/50 uppercase">
-                        Request Service Call
+                        Serviceanfrage
                       </span>
                       <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight mt-1">
-                        Book a Meeting
+                        Termin vereinbaren
                       </h3>
                       <div className="inline-block bg-[#D7E2EA]/10 border border-[#D7E2EA]/20 rounded-full px-3 py-1 mt-2.5 text-xs font-medium text-[#D7E2EA]/85">
-                        Selected: {selectedService}
+                        Ausgewählt: {selectedService}
                       </div>
                     </div>
 
@@ -423,7 +420,7 @@ ${formData.description}`,
                         type="text"
                         name="name"
                         required
-                        placeholder="Your Name*"
+                        placeholder="Ihr Name*"
                         value={formData.name}
                         onChange={handleChange}
                         className="w-full bg-[#D7E2EA]/5 border border-[#D7E2EA]/10 rounded-xl px-4 py-2.5 focus:border-[#B600A8] focus:ring-1 focus:ring-[#B600A8]/20 focus:outline-none transition-all text-sm font-light text-[#D7E2EA] placeholder:text-[#D7E2EA]/30"
@@ -435,7 +432,7 @@ ${formData.description}`,
                           type="email"
                           name="email"
                           required
-                          placeholder="Email Address*"
+                          placeholder="E-Mail-Adresse*"
                           value={formData.email}
                           onChange={handleChange}
                           className="w-full bg-[#D7E2EA]/5 border border-[#D7E2EA]/10 rounded-xl px-4 py-2.5 focus:border-[#B600A8] focus:ring-1 focus:ring-[#B600A8]/20 focus:outline-none transition-all text-sm font-light text-[#D7E2EA] placeholder:text-[#D7E2EA]/30"
@@ -444,7 +441,7 @@ ${formData.description}`,
                           type="tel"
                           name="phone"
                           required
-                          placeholder="Phone Number*"
+                          placeholder="Telefonnummer*"
                           value={formData.phone}
                           onChange={handleChange}
                           className="w-full bg-[#D7E2EA]/5 border border-[#D7E2EA]/10 rounded-xl px-4 py-2.5 focus:border-[#B600A8] focus:ring-1 focus:ring-[#B600A8]/20 focus:outline-none transition-all text-sm font-light text-[#D7E2EA] placeholder:text-[#D7E2EA]/30"
@@ -482,7 +479,7 @@ ${formData.description}`,
                       <textarea
                         name="description"
                         required
-                        placeholder="Tell us about your project needs...*"
+                        placeholder="Erzählen Sie uns von Ihren Projektanforderungen...*"
                         rows={3}
                         value={formData.description}
                         onChange={handleChange}
@@ -513,7 +510,7 @@ ${formData.description}`,
                           isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90 active:scale-98 cursor-pointer'
                         }`}
                       >
-                        {isSubmitting ? 'Sending...' : 'Confirm Booking'}
+                        {isSubmitting ? 'Wird gesendet...' : 'Buchung bestätigen'}
                       </button>
                     </form>
                   </motion.div>
@@ -528,15 +525,15 @@ ${formData.description}`,
                     <div className="w-16 h-16 rounded-full bg-green-500/10 border border-green-500 flex items-center justify-center text-green-500">
                       <Check className="w-8 h-8" />
                     </div>
-                    <h3 className="text-xl font-bold">Booking Confirmed!</h3>
+                    <h3 className="text-xl font-bold">Termin bestätigt!</h3>
                     <p className="text-sm font-light text-[#D7E2EA]/60 max-w-xs leading-relaxed">
-                      Thank you for booking a call. We will contact you at your chosen date and time:
+                      Vielen Dank für Ihre Buchungsanfrage. Wir werden Sie zum gewünschten Datum und der gewünschten Uhrzeit kontaktieren:
                       <strong className="text-white mt-1.5 block">
-                        {formData.date} at {formData.time}
+                        {formData.date} um {formData.time} Uhr
                       </strong>
                     </p>
                     <p className="text-xs text-[#D7E2EA]/40 mt-1">
-                      An email confirmation has been sent to your address.
+                      Eine Bestätigungs-E-Mail wurde an Ihre Adresse gesendet.
                     </p>
                     <button
                       onClick={handleClose}
@@ -550,7 +547,7 @@ ${formData.description}`,
                       }}
                       className="w-full rounded-full text-white font-medium uppercase tracking-widest py-3 hover:opacity-90 active:scale-98 transition-all text-xs cursor-pointer mt-4"
                     >
-                      Close Window
+                      Fenster schließen
                     </button>
                   </motion.div>
                 )}

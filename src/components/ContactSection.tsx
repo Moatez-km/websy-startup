@@ -36,19 +36,19 @@ export const ContactSection: React.FC = () => {
         },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: `New Message from Contact Form: ${formData.name}`,
+          subject: `Neue Nachricht über das Kontaktformular: ${formData.name}`,
           from_name: 'Websy Contact',
           replyto: formData.email,
           name: formData.name,
           email: formData.email,
           website: formData.website,
-          message: `You have a new message from Websy contact form:
+          message: `Sie haben eine neue Nachricht über das Websy-Kontaktformular erhalten:
 
-Client Name: ${formData.name}
-Client Email: ${formData.email}
-Client Website: ${formData.website || 'N/A'}
+Name des Kunden: ${formData.name}
+E-Mail des Kunden: ${formData.email}
+Website des Kunden: ${formData.website || 'Keine Angabe'}
 
-Message:
+Nachricht:
 ${formData.message}`,
         }),
       });
@@ -62,11 +62,11 @@ ${formData.message}`,
           setIsSuccess(false);
         }, 5000);
       } else {
-        setErrorMsg(result.message || 'Something went wrong. Please try again.');
+        setErrorMsg(result.message || 'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      setErrorMsg('Failed to connect to email service. Please check your internet connection.');
+      setErrorMsg('Verbindung zum E-Mail-Dienst fehlgeschlagen. Bitte überprüfen Sie Ihre Internetverbindung.');
     } finally {
       setIsSubmitting(false);
     }
@@ -82,13 +82,13 @@ ${formData.message}`,
         <div className="flex-1 flex flex-col justify-between gap-10">
           <FadeIn delay={0} y={40} className="flex flex-col gap-6">
             <span className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-[#D7E2EA]/50 uppercase">
-              Contact Info Section
+              Kontaktinfo
             </span>
             <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-[clamp(2.5rem,6vw,80px)] select-none">
-              Get in<br />Touch
+              Kontakt<br />aufnehmen
             </h2>
             <p className="text-sm sm:text-base font-light text-[#D7E2EA]/70 leading-relaxed max-w-md">
-              We're here to discuss your project and bring your ideas to life with premium design & development.
+              Ich bin für Sie da, um Ihr Projekt zu besprechen und Ihre Ideen mit erstklassigem Design & Entwicklung zum Leben zu erwecken.
             </p>
           </FadeIn>
 
@@ -102,7 +102,7 @@ ${formData.message}`,
                 <Mail className="w-5 h-5 text-[#D7E2EA]/60 group-hover:text-[#D7E2EA] transition-colors" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] uppercase tracking-widest text-[#D7E2EA]/40 font-medium">Email Us</span>
+                <span className="text-[10px] uppercase tracking-widest text-[#D7E2EA]/40 font-medium">E-Mail</span>
                 <span className="text-sm sm:text-base font-medium text-[#D7E2EA]/85 group-hover:text-white transition-colors">
                   info@websy-service.de
                 </span>
@@ -115,9 +115,9 @@ ${formData.message}`,
                 <MapPin className="w-5 h-5 text-[#D7E2EA]/60" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] uppercase tracking-widest text-[#D7E2EA]/40 font-medium">Visit Us</span>
+                <span className="text-[10px] uppercase tracking-widest text-[#D7E2EA]/40 font-medium">Adresse</span>
                 <span className="text-sm sm:text-base font-medium text-[#D7E2EA]/85">
-                  Juri-Gargarin-Ring 22 , 99084 Erfurt , Thuringen - Germany.
+                  Juri-Gagarin-Ring 22, 99084 Erfurt, Thüringen - Deutschland.
                 </span>
               </div>
             </div>
@@ -131,7 +131,7 @@ ${formData.message}`,
                 <Phone className="w-5 h-5 text-[#D7E2EA]/60 group-hover:text-[#D7E2EA] transition-colors" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] uppercase tracking-widest text-[#D7E2EA]/40 font-medium">Call Us</span>
+                <span className="text-[10px] uppercase tracking-widest text-[#D7E2EA]/40 font-medium">Anrufen</span>
                 <span className="text-sm sm:text-base font-medium text-[#D7E2EA]/85 group-hover:text-white transition-colors">
                   +49 176 544 52376
                 </span>
@@ -145,7 +145,7 @@ ${formData.message}`,
           <FadeIn delay={0.15} y={40} className="w-full">
             <form onSubmit={handleSubmit} className="flex flex-col gap-5 sm:gap-6 w-full">
               <span className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-[#D7E2EA]/50 uppercase mb-2 block md:hidden">
-                Contact Form
+                Kontaktformular
               </span>
               
               {/* Name field */}
@@ -154,7 +154,7 @@ ${formData.message}`,
                   type="text"
                   name="name"
                   required
-                  placeholder="Your Name*"
+                  placeholder="Ihr Name*"
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full bg-[#D7E2EA]/5 border border-[#D7E2EA]/10 rounded-2xl px-5 py-4 focus:border-[#B600A8] focus:ring-1 focus:ring-[#B600A8]/20 focus:outline-none transition-all duration-300 text-sm sm:text-base font-light text-[#D7E2EA] placeholder:text-[#D7E2EA]/30"
@@ -167,7 +167,7 @@ ${formData.message}`,
                   type="email"
                   name="email"
                   required
-                  placeholder="Email Address*"
+                  placeholder="E-Mail-Adresse*"
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full bg-[#D7E2EA]/5 border border-[#D7E2EA]/10 rounded-2xl px-5 py-4 focus:border-[#B600A8] focus:ring-1 focus:ring-[#B600A8]/20 focus:outline-none transition-all duration-300 text-sm sm:text-base font-light text-[#D7E2EA] placeholder:text-[#D7E2EA]/30"
@@ -179,7 +179,7 @@ ${formData.message}`,
                 <input
                   type="text"
                   name="website"
-                  placeholder="Your Website (Optional)"
+                  placeholder="Ihre Website (Optional)"
                   value={formData.website}
                   onChange={handleChange}
                   className="w-full bg-[#D7E2EA]/5 border border-[#D7E2EA]/10 rounded-2xl px-5 py-4 focus:border-[#B600A8] focus:ring-1 focus:ring-[#B600A8]/20 focus:outline-none transition-all duration-300 text-sm sm:text-base font-light text-[#D7E2EA] placeholder:text-[#D7E2EA]/30"
@@ -191,7 +191,7 @@ ${formData.message}`,
                 <textarea
                   name="message"
                   required
-                  placeholder="Write your message..."
+                  placeholder="Schreiben Sie Ihre Nachricht..."
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
@@ -207,7 +207,7 @@ ${formData.message}`,
 
               {isSuccess && (
                 <p className="text-xs text-green-500 font-medium">
-                  Message sent successfully!
+                  Nachricht erfolgreich gesendet!
                 </p>
               )}
 
@@ -230,7 +230,7 @@ ${formData.message}`,
                     isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90 active:scale-95 cursor-pointer'
                   }`}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? 'Wird gesendet...' : 'Nachricht senden'}
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
               </div>

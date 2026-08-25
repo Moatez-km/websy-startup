@@ -82,15 +82,15 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onScrollToSection })
       <div className="flex flex-col items-center z-10 w-full max-w-4xl">
         <FadeIn delay={0} y={40}>
           <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-center text-[clamp(3rem,12vw,160px)] select-none">
-            About me
+            Über mich
           </h2>
         </FadeIn>
 
         {/* Gap between heading and text */}
         <div className="mt-10 sm:mt-14 md:mt-16 w-full flex flex-col items-center gap-6 sm:gap-8 px-4">
-          <AnimatedText text="My name is Moatez. Before venturing into the web industry, I spent years studying computer science—giving me a genuine understanding of the realities and day-to-day lives of the professionals who drive the local economy." />
-          <AnimatedText text="After completing two digital marketing training programs and spending a year at a web agency building sites for local businesses, I launched WebWebsy-Startup (now based in Bourges). My goal is to support craftspeople, shop owners, restaurateurs, and freelancers who want to be found on Google." />
-          <AnimatedText text="No jargon, no agency markups. Just a single, accessible point of contact who truly understands your business." />
+          <AnimatedText text="Mein Name ist Moatez. Bevor ich in die Webbranche eingestiegen bin, habe ich jahrelang Informatik studiert – was mir ein echtes Verständnis für die Realität und den Alltag der Fachkräfte vermittelt hat, die die lokale Wirtschaft antreiben." />
+          <AnimatedText text="Nach dem Abschluss von zwei Weiterbildungen im Bereich digitales Marketing und einem Jahr in einer Webagentur, in der ich Websites für lokale Unternehmen erstellt habe, gründete ich WebWebsy-Startup (jetzt mit Sitz in Bourges). Mein Ziel ist es, Handwerker, Ladenbesitzer, Gastronomen und Freiberufler zu unterstützen, die bei Google gefunden werden wollen." />
+          <AnimatedText text="Kein Fachchinesisch, keine Agenturaufschläge. Einfach ein einziger, persönlicher Ansprechpartner, der Ihr Unternehmen wirklich versteht." />
         </div>
 
         {/* Gap between text block and button */}

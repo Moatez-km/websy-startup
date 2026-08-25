@@ -6,7 +6,7 @@ import { FadeIn } from './FadeIn';
 const PROJECTS = [
   {
     num: '01',
-    category: 'Client',
+    category: 'Kunde',
     name: 'Bohnea Café & Rösterei',
     img1: 'images/bohnea3.png',
     img2: 'images/bohnea2.png',
@@ -14,15 +14,15 @@ const PROJECTS = [
   },
   {
     num: '02',
-    category: 'Client',
-    name: 'Roofing Company',
+    category: 'Kunde',
+    name: 'Dachdeckerei',
     img1: 'images/roofing3.png',
     img2: 'images/roofing2.png',
     img3: 'images/roofing1.png',
   },
   {
     num: '03',
-    category: 'Client',
+    category: 'Kunde',
     name: 'Café & Bar Rosé',
     img1: 'images/rose2.png',
     img2: 'images/rose3.png',
@@ -126,7 +126,7 @@ export const ProjectsSection: React.FC = () => {
       <div className="w-full max-w-5xl mb-16 sm:mb-20 md:mb-28 text-center">
         <FadeIn delay={0} y={40}>
           <h2 className="hero-heading font-black uppercase text-[clamp(3rem,12vw,160px)] leading-none select-none">
-            Project
+            Projekte
           </h2>
         </FadeIn>
       </div>
