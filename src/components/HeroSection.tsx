@@ -170,8 +170,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
       {/* Hero Heading */}
       <div className="w-full overflow-hidden flex items-center justify-center z-0 px-6">
         <FadeIn delay={0.15} y={40} className="w-full text-center mt-6 sm:mt-4 md:-mt-5">
-          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[17.5vw] select-none">
-            Welcome
+          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[12vw] select-none">
+            Websy Service
           </h1>
         </FadeIn>
       </div>
@@ -186,7 +186,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
             style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
             className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px] select-none"
           >
-            Website creation and Google optimization to grow your business.
+            Webdesign, QR-Speisekarten & digitale Visitenkarten für kleine Unternehmen in Erfurt.
           </p>
         </FadeIn>
 

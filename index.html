@@ -40,30 +40,40 @@
 
   <!-- Structured Data: LocalBusiness -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Websy Service",
-    "image": "https://www.websy-service.de/images/favicon.png",
-    "url": "https://www.websy-service.de/",
-    "telephone": "+4917654452376",
-    "email": "info@websy-service.de",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Juri-Gargarin-Ring 22",
-      "addressLocality": "Erfurt",
-      "addressRegion": "Thüringen",
-      "postalCode": "99084",
-      "addressCountry": "DE"
-    },
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "09:00", "closes": "21:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "21:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:30", "closes": "15:00" }
-    ],
-    "priceRange": "€€"
-  }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Websy Service",
+  "image": "https://www.websy-service.de/images/favicon.png",
+  "url": "https://www.websy-service.de/",
+  "telephone": "+4917654452376",
+  "email": "info@websy-service.de",
+  "areaServed": ["Erfurt", "Thüringen", "Deutschland"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Juri-Gargarin-Ring 22",
+    "addressLocality": "Erfurt",
+    "addressRegion": "Thüringen",
+    "postalCode": "99084",
+    "addressCountry": "DE"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Websy Service Leistungen",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Webdesign" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "QR-Speisekarte" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digitale Visitenkarte" } }
+    ]
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "09:00", "closes": "21:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "21:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:30", "closes": "15:00" }
+  ],
+  "priceRange": "€€"
+}
+</script>
 </head>
 
 <body>
