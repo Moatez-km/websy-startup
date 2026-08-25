@@ -14,7 +14,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
   return (
     <section className="relative h-screen w-full flex flex-col justify-between overflow-hidden bg-[#0C0C0C]">
       {/* Absolute Portrait */}
-      <div className="absolute left-1/2 -translate-x-1/2 z-10 w-[130vw] max-w-[680px] sm:w-[800px] md:w-[950px] lg:w-[1100px] xl:w-[1200px] top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 pointer-events-none">
+      <div className="absolute left-1/2 -translate-x-1/2 z-10 w-[100vw] max-w-[680px] sm:w-[800px] md:w-[950px] lg:w-[1100px] xl:w-[1200px] bottom-0 pointer-events-none">
         <FadeIn delay={0.6} y={30} duration={0.8} className="w-full h-full flex justify-center items-end">
           <Magnet
             padding={150}
@@ -170,7 +170,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToSection }) =
       {/* Hero Heading */}
       <div className="w-full overflow-hidden flex items-center justify-center z-0 px-6">
         <FadeIn delay={0.15} y={40} className="w-full text-center mt-6 sm:mt-4 md:-mt-5">
-          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[9vw] sm:text-[10vw] md:text-[10vw] lg:text-[12vw] select-none">
+          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[10vw] sm:text-[10vw] md:text-[10vw] lg:text-[12vw] select-none">
             Websy Service
           </h1>
         </FadeIn>
