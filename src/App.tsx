@@ -3,6 +3,7 @@ import { MarqueeSection } from './components/MarqueeSection';
 import { AboutSection } from './components/AboutSection';
 import { ServicesSection } from './components/ServicesSection';
 import { ProjectsSection } from './components/ProjectsSection';
+import { FAQSection } from './components/FAQSection';
 import { ContactSection } from './components/ContactSection';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
@@ -31,6 +32,9 @@ function App() {
 
       {/* 5. Projects Section */}
       <ProjectsSection />
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* 6. Contact Section */}
       <ContactSection />
@@ -116,6 +120,14 @@ function App() {
                 <span className="leading-relaxed">
                   Juri-Gagarin-Ring 22, 99084 Erfurt, Thüringen - Deutschland.
                 </span>
+              </li>
+              <li>
+                <a
+                  href="/faq.html"
+                  className="hover:text-white transition-colors duration-300 hover:underline underline-offset-4"
+                >
+                  FAQ (Häufige Fragen)
+                </a>
               </li>
             </ul>
           </div>
